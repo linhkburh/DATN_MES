@@ -1,0 +1,83 @@
+#popup_container {
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 300px !important; /* Dialog will wrap after this width */	
+	color: #000;	
+}
+
+#popup_content {
+    background: #f8f9fa;
+    margin: 0em;
+    padding-bottom: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-radius: 5px;
+    color: #000;
+}
+
+#popup_content.alert {
+	background-image: url(images/info.gif);
+}
+
+#popup_content.confirm {
+	background-image: url(images/important.gif);
+}
+
+#popup_content.prompt {
+	background-image: url(images/help.gif);
+}
+
+#popup_message {
+    padding: 5% 5px;
+    text-align: center;
+    color: #0f4264 !important;
+}
+
+#popup_panel {
+	text-align: center;
+	/*margin: 1em 0em 0em 1em;*/
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
+
+.alert-header{
+    font-size: 14px !important;
+    padding-top: 5px !important;
+    padding-left: 10px !important;
+    padding-bottom: 5px !important;
+    background-size: contain;
+    color: #FFF;
+    background-color: #339;
+    text-transform: uppercase;
+}
+.ui-widget-overlay {
+    background-color: rgba(37, 37, 37, 0.83) !important;
+    z-index: 88888;
+}
+.ui-dialog-title{
+    color: #FFF;
+    font-size: 14px;
+    font-weight: bold;
+}
+/* hacks */
+/*
+#popup_panel input{
+    background: #006ecb;
+    border: 1px solid #c5dbec;
+    color: #666;
+    display: inline;
+    font-size: 12px;
+    font-weight: bold;
+    height: auto;
+    margin: 0;
+    padding: 2px;
+    width: auto;
+	
+}
+
+#popup_panel input:focus{
+	border: 1px solid #999;
+}*/

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report_09BV_subrp1" pageWidth="5000" pageHeight="595" orientation="Landscape" whenNoDataType="NoPages" columnWidth="5000" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5cf54516-ca8e-41e8-b0d5-7e9f46b175e4">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="HDTG"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="465"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="521"/>
+	<style name="Crosstab_CH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CG" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CT" mode="Opaque" backcolor="#005FB3">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="p_quotation_id" class="java.lang.String"/>
+	<parameter name="p_quotation_item_id" class="java.lang.String"/>
+	<queryString language="plsql">
+		<![CDATA[{call hdtg_report.Report_09BV_subrp($P{p_quotation_id},$P{p_quotation_item_id},$P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="TENHINHGIACONG" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TENHINHGIACONG"/>
+	</field>
+	<field name="BUOCGIACONG" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BUOCGIACONG"/>
+	</field>
+	<field name="EXE_TIME" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="EXE_TIME"/>
+	</field>
+	<field name="ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ID"/>
+	</field>
+	<sortField name="TENHINHGIACONG" order="Descending"/>
+	<sortField name="BUOCGIACONG" order="Descending"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<crosstab>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="5000" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="600ee1bd-8121-4547-b522-6b564df20c30">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.crosstab.style.header" value="Crosstab_CH"/>
+					<property name="com.jaspersoft.studio.crosstab.style.group" value="Crosstab_CG"/>
+					<property name="com.jaspersoft.studio.crosstab.style.total" value="Crosstab_CT"/>
+					<property name="com.jaspersoft.studio.crosstab.style.detail" value="Crosstab_CD"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<crosstabDataset>
+					<dataset resetType="Report"/>
+				</crosstabDataset>
+				<rowGroup name="ID" width="0" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{ID}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Opaque" style="Crosstab_CH">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="0" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="652a7363-0d15-4d82-bf75-41e895513a99"/>
+								<textFieldExpression><![CDATA[$V{ID}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents mode="Opaque" style="Crosstab_CT"/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="TENHINHGIACONG" height="0" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{TENHINHGIACONG}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents mode="Opaque" style="Crosstab_CH">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="0" uuid="34de0146-755a-4636-a9b7-7b13df0aaec2"/>
+								<textFieldExpression><![CDATA[$V{TENHINHGIACONG}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents mode="Opaque" style="Crosstab_CT"/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<columnGroup name="BUOCGIACONG" height="0" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{BUOCGIACONG}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents mode="Opaque" style="Crosstab_CH">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="0" uuid="af51f2fb-ac9f-42f0-b6c5-1b77d628314d"/>
+								<textFieldExpression><![CDATA[$V{BUOCGIACONG}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents mode="Opaque" style="Crosstab_CG"/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="EXE_TIME_MEASURE" class="java.math.BigDecimal" calculation="Sum">
+					<measureExpression><![CDATA[$F{EXE_TIME}]]></measureExpression>
+				</measure>
+				<crosstabCell width="70" height="20">
+					<cellContents mode="Opaque" style="Crosstab_CD">
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+							<reportElement style="Crosstab_CD" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="c1f85ec6-cf6e-4b7f-9c69-c2ef30c05698"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" size="8"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{EXE_TIME_MEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="0" height="20" columnTotalGroup="TENHINHGIACONG">
+					<cellContents mode="Opaque" style="Crosstab_CT"/>
+				</crosstabCell>
+				<crosstabCell width="0" height="20" columnTotalGroup="BUOCGIACONG">
+					<cellContents mode="Opaque" style="Crosstab_CG"/>
+				</crosstabCell>
+				<crosstabCell width="70" height="0" rowTotalGroup="ID">
+					<cellContents mode="Opaque" style="Crosstab_CT"/>
+				</crosstabCell>
+				<crosstabCell width="0" height="0" rowTotalGroup="ID" columnTotalGroup="TENHINHGIACONG">
+					<cellContents mode="Opaque" style="Crosstab_CT"/>
+				</crosstabCell>
+				<crosstabCell width="0" height="0" rowTotalGroup="ID" columnTotalGroup="BUOCGIACONG">
+					<cellContents mode="Opaque" style="Crosstab_CT"/>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

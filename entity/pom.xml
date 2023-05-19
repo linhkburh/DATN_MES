@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cnctech.vn</groupId>
+	<artifactId>entity</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>entity</name>
+	<description>entity</description>
+	<properties>
+		<springframework.version>5.2.1.RELEASE</springframework.version>
+		<apache.tiles>3.0.8</apache.tiles>
+		<tiles.api>3.0.8</tiles.api>
+		<hibernate.version>5.6.15.Final</hibernate.version>
+		<jackson>2.9.3</jackson>
+	</properties>
+	<dependencies>
+		<!-- hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<!-- json -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson}</version>
+		</dependency>
+
+
+		<!-- internal depend -->
+		<!-- -->
+		<dependency>
+			<groupId>cnctech.vn</groupId>
+			<artifactId>common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+
+	</dependencies>
+
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.hibernate.orm.tooling</groupId>
+				<artifactId>hibernate-enhance-maven-plugin</artifactId>
+				<version>${hibernate.version}</version>
+				<executions>
+					<execution>
+						<configuration>
+							<enableLazyInitialization>true</enableLazyInitialization>
+							<!-- 
+							<enableAssociationManagement>true</enableAssociationManagement>
+							 -->
+							 <failOnError>true</failOnError>
+							<enableDirtyTracking>true</enableDirtyTracking>
+							<enableExtendedEnhancement>false</enableExtendedEnhancement>
+						</configuration>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

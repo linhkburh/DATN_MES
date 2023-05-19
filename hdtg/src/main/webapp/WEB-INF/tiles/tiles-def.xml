@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="base" template="/page/base/base.jsp">
+		<put-attribute name="title" value="CIC" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="extra-scripts" value="" />
+	</definition>
+	
+	<definition name="catalog" template="/page/base/catalog.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="search_infor_title" value="Thông tin tìm kiếm" cascade="true"/>
+		<put-attribute name="search_result_title" value="Kết quả tìm kiếm" cascade="true"/>
+		<put-attribute name="detail_title" value="Chi tiết" cascade="true"/>
+		<put-attribute name="catGrid" value="" />
+		<put-attribute name="catDetail" value="" cascade="true"/>
+		<put-attribute name="extra-scripts" value="" />
+	</definition>
+	<definition name="catalog2" template="/page/base/catalog2.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="more" value="" />
+		<put-attribute name="catGrid" value="" />
+		<put-attribute name="catDetail" value="" cascade="true"/>
+		<put-attribute name="extra-scripts" value="" />
+	</definition>
+	<definition name="simple_catalog" template="/page/base/simple_catalog.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="detail_title" value="Chi tiết" cascade="true"/>
+		<put-attribute name="catDetail" value="" cascade="true"/>
+		<put-attribute name="extra-scripts" value="" />
+	</definition>
+	
+	<definition name="simple_base" template="/page/base/simple_base.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="more" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="extra-scripts" value="" />
+	</definition>
+</tiles-definitions>

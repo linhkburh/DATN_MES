@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>cic</display-name>
+	<!-- spring mvc -->
+	<servlet>
+		<servlet-name>spring-mvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>	
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/spring/spring-mvc.xml,
+				/WEB-INF/spring/spring-bean.xml,
+				/WEB-INF/spring/spring-localization.xml,
+				/WEB-INF/spring/dev.xml
+			</param-value>			
+		</init-param>
+		<load-on-startup>1</load-on-startup>	
+		<multipart-config>			
+            <max-file-size>1067459584</max-file-size> <!-- 20848820 -->
+            <max-request-size>21402564660</max-request-size><!-- 418018841 -->
+            <file-size-threshold>53687092</file-size-threshold><!-- 1048576 -->
+        </multipart-config>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>spring-mvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- <servlet>
+		<servlet-name>spring-ws</servlet-name>
+		<servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
+		<init-param>
+         <param-name>transformWsdlLocations</param-name>
+         <param-value>true</param-value>
+      </init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>spring-ws</servlet-name>
+		<url-pattern>/ws/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>spring-ws</servlet-name>
+		<url-pattern>*.wsdl</url-pattern>
+	</servlet-mapping> -->
+	
+	
+	
+	
+	<!-- Spring Security -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<!-- <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> -->
+		<filter-class>frwk.filter.SecurityFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		/WEB-INF/spring/spring-security.xml
+		</param-value>
+	</context-param>
+	
+</web-app>

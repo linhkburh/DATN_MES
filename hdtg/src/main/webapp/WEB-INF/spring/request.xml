@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CicTemplate>
+	<Header>
+		<DonViTraCuu></DonViTraCuu>
+		<DiaChi></DiaChi>
+		<UserID></UserID>
+		<DienThoai></DienThoai>
+		<MaBanTin></MaBanTin>
+		<ThoiGianYC></ThoiGianYC>
+		<ThoiGianGui></ThoiGianGui>
+	</Header>
+	<Body>
+		<Items>
+			<Item>
+				<MaSoPhieu></MaSoPhieu>
+				<manh></manh>
+				<matctd></matctd>
+				<nguoihoi></nguoihoi>
+				<ngayhoi></ngayhoi>
+				<loaikh></loaikh>
+				<loaisp></loaisp>
+				<masp></masp>
+				<tenkh></tenkh>
+				<diachi></diachi>
+				<msthue></msthue>
+				<socmt></socmt>
+				<dkkd></dkkd>
+				<loaigtk></loaigtk>
+				<sogtk></sogtk>
+				<makh></makh>
+				<macic></macic>
+				<ngaytao></ngaytao>
+				<trangthai></trangthai>
+				<ngaytraloi></ngaytraloi>
+				<ghichu></ghichu>
+				<fi1></fi1>
+				<fi2></fi2>
+				<fi3></fi3>
+			</Item>
+			<Item>
+				...
+			</Item>
+			...
+		</Items>
+	</Body>
+</CicTemplate>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd 
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+
+	<!-- <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" 
+		autowire="byName"> <property name="basenames"> <list> <value>classpath:messages/messages</value> 
+		</list> </property> <property name="cacheSeconds" value="1" /> </bean> -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>entity.frwk</value>
+				<value>entity</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql:true}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql:false}</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager"> 
+		<property name="sessionFactory" ref="sessionFactory" /> </bean> <tx:annotation-driven 
+		transaction-manager="transactionManager" /> -->
+	<bean id="genHub" class="integration.genhub.GenHub">
+		<property name="appCodeParamKey" value="APP_CODE"></property>
+		<property name="genHubSvrAddParamKey" value="GENHUBSVRADD"></property>
+		<property name="url" value="${genhubWsdlUrl}"></property>
+	</bean>
+
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+
+	<context:component-scan
+		base-package="schedule,frwk.schedule,frwk.bean,frwk.editors.spring,cic.ws.client,frwk.controller,frwk.controller.sys,cic.h2h.dao.hibernate,frwk.dao.hibernate.sys,cic.h2h.controller,integration.genhub" />
+
+	<cache:annotation-driven />
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehcache" />
+	</bean>
+	<bean id="ehcache"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache.xml" />
+	</bean>
+	<bean id="velocityEngine" class="org.apache.velocity.spring.VelocityEngineFactoryBean">
+	      <property name="velocityProperties">
+	         <value>
+	          resource.loader=class
+	          class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+	         </value>
+	      </property>
+	  </bean>
+</beans>

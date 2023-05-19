@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/TR/xmlschema-1/#no-xsi"
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+	updateCheck="false" monitoring="autodetect" dynamicConfig="true">
+
+	<!-- | Please see http://ehcache.sourceforge.net/documentation/configuration.html 
+		for | detailed information on how to configurigure caches in this file + -->
+	<!-- Location of persistent caches on disk -->
+	<!-- <diskStore path="java.io.tmpdir/cic" /> -->
+	<!-- <cache name="clientAppDao.getClient" maxElementsInMemory="10" maxElementsOnDisk="10" 
+		eternal="false" overflowToDisk="true" diskSpoolBufferSizeMB="50" timeToIdleSeconds="180" 
+		timeToLiveSeconds="300" memoryStoreEvictionPolicy="LFU" transactionalMode="off" 
+		/> -->
+
+	<cache name="NetWork.getLocalIp" maxElementsInMemory="10"
+		eternal="false" timeToIdleSeconds="180" timeToLiveSeconds="300"
+		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+	<cache name="rightUtils.haveAction" maxElementsInMemory="20"
+		eternal="false" timeToIdleSeconds="180" timeToLiveSeconds="300"
+		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+	<cache name="sysParamDao.getSysParamByCode"
+		maxElementsInMemory="20" eternal="false" timeToIdleSeconds="180"
+		timeToLiveSeconds="300" memoryStoreEvictionPolicy="LFU"
+		transactionalMode="off" />
+	<cache name="sysObjectDao.getAll" maxElementsInMemory="10"
+		eternal="false" timeToIdleSeconds="180" timeToLiveSeconds="300"
+		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+	<cache name="companyDao.getAllOrderAstName"
+		maxElementsInMemory="10" eternal="false" timeToIdleSeconds="180"
+		timeToLiveSeconds="300" memoryStoreEvictionPolicy="LFU"
+		transactionalMode="off" />
+	<cache name="getCusbyCode" maxElementsInMemory="100"
+		eternal="false" timeToIdleSeconds="180" timeToLiveSeconds="300"
+		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+	<cache name="getSysUserByUserName" maxElementsInMemory="100"
+		eternal="false" timeToIdleSeconds="180" timeToLiveSeconds="300"
+		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+	<cache name="SysUsersDao.getCompanyUser" maxElementsInMemory="20"
+		eternal="false" timeToIdleSeconds="180" timeToLiveSeconds="300"
+		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+	<cache name="SysDictParam.getByTypeAndCode"
+		maxElementsInMemory="100" eternal="false" timeToIdleSeconds="180"
+		timeToLiveSeconds="300" memoryStoreEvictionPolicy="LFU"
+		transactionalMode="off" />
+	<cache name="materialDao.getByCode" maxElementsInMemory="100"
+		eternal="false" timeToIdleSeconds="180" timeToLiveSeconds="300"
+		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+	<cache name="exeStepDao.getByTypeAndCode"
+		maxElementsInMemory="100" eternal="false" timeToIdleSeconds="180"
+		timeToLiveSeconds="300" memoryStoreEvictionPolicy="LFU"
+		transactionalMode="off" />
+	<cache name="SysUsersDao.getDepartmentUser"
+		maxElementsInMemory="20" eternal="false" timeToIdleSeconds="180"
+		timeToLiveSeconds="300" memoryStoreEvictionPolicy="LFU"
+		transactionalMode="off" />
+	<cache name="customerManageDao.getByType"
+		maxElementsInMemory="5" eternal="false" timeToIdleSeconds="180"
+		timeToLiveSeconds="300" memoryStoreEvictionPolicy="LFU"
+		transactionalMode="off" />
+
+</ehcache>
